@@ -41,7 +41,7 @@ body{
 #gen-btn:active{transform:translateY(0)}
 
 /* ══ SCENE — v7 exact ══ */
-#scene{display:none;flex-direction:column;align-items:center;gap:0;width:100%;max-width:650px;animation:fadeUp .5s ease both}
+#scene{display:none;flex-direction:column;align-items:center;gap:0;width:650px;animation:fadeUp .5s ease both;transform-origin:top center}
 
 /* ══ STAGE — v7 exact ══ */
 #stage{position:relative;width:100%;aspect-ratio:100/72}
@@ -183,16 +183,8 @@ body{
   #cert-wrap{position:static!important;transform:none!important;opacity:1!important;box-shadow:none}
 }
 
-/* ══ RESPONSIVE ══ */
-@media(max-width:700px){
-  body{padding:10px 0;overflow:auto}
-  #scene{
-    width:680px;min-width:680px;
-    transform:scale(calc(100vw / 900));transform-origin:top center;
-    margin:0 auto;
-  }
-  #stage{aspect-ratio:100/72}
-}
+/* ══ RESPONSIVE — handled by JS ══ */
+#scene{transform-origin:top center}
 </style>
 </head>
 <body>
@@ -308,9 +300,23 @@ function launch(){
   document.getElementById('form-screen').style.display='none';
   const sc=document.getElementById('scene');
   sc.style.display='flex';
+  fitScene();
   sc.scrollIntoView({behavior:'smooth',block:'start'});
   setTimeout(()=>document.getElementById('stage').classList.add('open'),480);
 }
+
+function fitScene(){
+  const sc=document.getElementById('scene');
+  if(!sc||sc.style.display==='none')return;
+  const sceneW=650;
+  const pad=20;
+  const available=window.innerWidth-pad*2;
+  const s=Math.min(available/sceneW,1);
+  sc.style.transform='scale('+s+')';
+  sc.style.marginBottom=-(sc.offsetHeight*(1-s))+'px';
+}
+window.addEventListener('resize',fitScene);
+window.addEventListener('orientationchange',()=>setTimeout(fitScene,200));
 document.addEventListener('keydown',e=>{
   if(e.key==='Enter'&&document.getElementById('form-screen').style.display!=='none')launch();
 });
