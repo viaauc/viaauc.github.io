@@ -80,10 +80,10 @@ body{
 
 /* Blobs — matched to certificate size (v7 values, slightly larger) */
 .blob{position:absolute;pointer-events:none;z-index:0}
-.blob-tl{top:-88px;left:-88px;width:328px;height:315px;background:#2563eb;border-radius:62% 38% 48% 52%/55% 45% 55% 45%}
-.blob-tr{top:-76px;right:-76px;width:302px;height:290px;background:#f5c518;border-radius:40% 60% 52% 48%/48% 52% 48% 52%}
-.blob-bl{bottom:-88px;left:-76px;width:328px;height:315px;background:#dc2626;border-radius:55% 45% 40% 60%/50% 50% 50% 50%}
-.blob-br{bottom:-88px;right:-76px;width:328px;height:315px;background:#2563eb;border-radius:44% 56% 62% 38%/46% 54% 46% 54%}
+.blob-tl{top:-50px;left:-50px;width:200px;height:190px;background:#2563eb;border-radius:62% 38% 48% 52%/55% 45% 55% 45%}
+.blob-tr{top:-45px;right:-45px;width:180px;height:175px;background:#f5c518;border-radius:40% 60% 52% 48%/48% 52% 48% 52%}
+.blob-bl{bottom:-50px;left:-45px;width:200px;height:190px;background:#dc2626;border-radius:55% 45% 40% 60%/50% 50% 50% 50%}
+.blob-br{bottom:-50px;right:-45px;width:200px;height:190px;background:#2563eb;border-radius:44% 56% 62% 38%/46% 54% 46% 54%}
 
 #certificate::before{content:'';position:absolute;inset:10px;border-radius:8px;border:1.5px solid rgba(37,99,235,.1);z-index:1;pointer-events:none}
 
@@ -185,26 +185,11 @@ body{
 
 /* ══ RESPONSIVE ══ */
 @media(max-width:700px){
-  .cert-inner{padding:14px 28px 6px}
-  .cert-title-main{font-size:1.8rem}
-  .cert-title-sub{font-size:.78rem;letter-spacing:3px}
-  .cert-present{font-size:.72rem;letter-spacing:2px}
-  .cert-name{font-size:2.4rem}
-  .cert-quote{font-size:.72rem}
-  .cert-logo{height:36px}
-  .since-lbl{font-size:.5rem}
-  .since-yr{font-size:.95rem}
-  .cert-since-badge{padding:5px 16px;gap:7px}
-  .sig-left,.sig-right{width:130px}
-  .sig-hand{font-size:1.1rem}
-  .sig-line{width:100px}
-  .sig-name{font-size:.6rem}
-  .sig-title-president,.sig-title-vp{font-size:.55rem}
-  .sig-year-president,.sig-year-vp{font-size:.5rem}
-  .footer-center img{height:40px}
-  .blob-tl,.blob-bl{width:228px;height:216px}
-  .blob-tr{width:210px;height:202px}
-  .blob-br{width:228px;height:216px}
+  body{padding:10px 0}
+  #scene{
+    width:680px;min-width:680px;
+    transform:scale(calc(100vw / 700));transform-origin:top center;
+  }
   #stage{aspect-ratio:100/72}
 }
 </style>
