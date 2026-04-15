@@ -13,7 +13,7 @@ body{
   min-height:100vh;
   background:linear-gradient(135deg,#1a2e6b 0%,#0d1a3e 55%,#0a1228 100%);
   display:flex;align-items:center;justify-content:center;
-  font-family:'Nunito',sans-serif;padding:120px 80px;
+  font-family:'Nunito',sans-serif;padding:20px;
 }
 
 /* ══ FORM ══ */
@@ -41,7 +41,7 @@ body{
 #gen-btn:active{transform:translateY(0)}
 
 /* ══ SCENE — v7 exact ══ */
-#scene{display:none;flex-direction:column;align-items:center;gap:0;width:100%;max-width:650px;animation:fadeUp .5s ease both;padding:160px 60px}
+#scene{display:none;flex-direction:column;align-items:center;gap:0;width:100%;max-width:650px;animation:fadeUp .5s ease both}
 
 /* ══ STAGE — v7 exact ══ */
 #stage{position:relative;width:100%;aspect-ratio:100/72}
@@ -185,11 +185,10 @@ body{
 
 /* ══ RESPONSIVE ══ */
 @media(max-width:700px){
-  body{padding:120px 40px;overflow:auto}
+  body{padding:10px 0;overflow:auto}
   #scene{
     width:680px;min-width:680px;
     transform:scale(calc(100vw / 900));transform-origin:top center;
-    padding:160px 60px;
     margin:0 auto;
   }
   #stage{aspect-ratio:100/72}
